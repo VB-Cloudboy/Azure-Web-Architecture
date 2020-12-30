@@ -1,3 +1,3 @@
-# Azure Web Architectures
-01 - BasicWebApplication
+# Azure Basic Web Application
+
 
