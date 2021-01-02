@@ -26,6 +26,12 @@ Where each file details are outlined as;
 
 | Terraform | Cloud-Provider | Function | Full-Name |
 | --        | --             | --       | --        |
-| terraform | azure          | dns      | tf-az-dns |
-|  |  | | 
+| terraform | azure | dns      | tf-az-dns |
+| terraform | azure | storage  | tf-az-strg|
+| terraform | azure | app service plan | tf-az-web| 
+| terraform | azure | app service web app| tf-az-web|
+| terraform | azure | sql databases | tf-az-db|
+| terraform | azure | virtual network | tf-az-vnet|
+| terraform | azure | network security group | tf-az-nsg|
+
 
