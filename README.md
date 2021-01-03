@@ -1,9 +1,23 @@
 # Azure Basic Web Application
 
+## **Summary**
+The architecture shows proven practices for a web application that uses Azure App Service and Azure SQL Database. The architecture has other components like *Resource groups*, *App Service Plan & App*, *Deployment Slots*, *IP-Address*, *Azure DNS*, *Azure SQL Database*, *Logical Server*, *Azure Storage*, *Azure Active Directory* for more details on the each resources please click on this [link](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/app-service-web-app/basic-web-app#architecture)
+
+<p align="center">
+  <img alt="terraform logo" src="images/basic-web-app.png" />
+  <h3 align="center">Reference Architecture of Basic Web Application </h3>
+</p>
 
 
 
-## Module Information
+
+
+
+
+
+
+
+## **Module Information**
 
 ### **1. Module Structure**
 
@@ -24,7 +38,7 @@ Where each file details are outlined as;
 ### **2. Module Naming Convention**
 
 
-| Terraform | Cloud-Provider | Function | Full-Name |
+| Terraform | Cloud-Provider | Function | Module Full-Name |
 | --        | --             | --       | --        |
 | terraform | azure | dns      | tf-az-dns |
 | terraform | azure | storage  | tf-az-strg|
