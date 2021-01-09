@@ -17,11 +17,19 @@ The architecture shows proven practices for a web application that uses Azure Ap
 
 ### **1. Module Structure**
 
-* LICENSE
 * README.md
 * main.tf
 * variables.tf
 * outputs.tf  
+
+```
+$ tree minimal-module/
+.
+├── README.md
+├── main.tf
+├── variables.tf
+├── outputs.tf
+```
 
 Where each file details are outlined as; 
 
