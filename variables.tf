@@ -103,6 +103,7 @@ variable "strg_environment_name_tag" {
 variable "sqlser_cb_name" {
     description = "The name of the SQL Server. This needs to be globally unique within Azure."    
     type        = string
+    
 }
 # Variable for MSSQL Server location
 variable "sqlser_cb_ver" {
@@ -114,12 +115,14 @@ variable "sqlser_cb_ver" {
 variable "sqlser_cb_admr_lgn" {
     description = "The administrator login name for the new server. Changing this forces a new resource to be created."    
     type        = string
+    sensitive   = true
 }
 
 # Variable for Azure SQL Server Administrator Password
 variable "sqlser_cb_admr_pwd" {
     description = "The password is at least eight characters long.The password associated with the administrator_login user. Needs to comply with Azure's Password Policy"    
     type        = string
+    sensitive   = true
 }
 
 # Variable for Azure SQL Server Firewall Rules
@@ -135,81 +138,27 @@ variable "sqlser_cb_dbaas" {
 }
 
 
-/*
-
 #-------------------------------------------------------------
-# VIRTUAL NETWORK & SUBNETS VARIABLE DECLARATION
+# AZURE WEB-APP-SERVICE VARIABLE DECLARATION
 #-------------------------------------------------------------
 
-# Variable for Virtual Network Name 
-variable "vnet_snl_network_name" {
-    description = "The name of the virtual network. Changing this forces a new resource to be created." 
+# Variable for App Service Plan Name
+variable "appservice_plan_name" {
+    description = "Specifies the name of the App Service Plan component. Changing this forces a new resource to be created."
+    type = string 
+}
+# Variable for App Service Plan tier
+variable "appservice_plan_tier" {
+    description = "Specifies the plan's pricing tier."
     type = string
 }
-# Variable for VNET Address Space CIDR range
-variable "vnet_snl_cidr_range" {
-    description = "The address space that is used the virtual network. You can supply more than one address space. Changing this forces a new resource to be created." 
-    #type = string
+# Variable for App Service Plan Size
+variable "appservice_plan_size" {
+    description = "Specifies the plan's instance size."
+    type = string
 }
-# Variable for Subnets for VNET 
-variable "vnet_snl_subnet_details" {
-    description = "List of objects representing subnets, as defined below."
+# Variable for Dot-Net Web App Service Name
+variable "appservice_winapp" {
+    description = "List of Dot-Net web apps representing app as a service, with value mapped as [0]Name, [1]dotnet framework version, [2]Source Control Mode Type"
     type = map
 }
-
-#----------------------------------------------------
-# SEARCH ENGINE SERVICE VARIABLE DECLARATION
-#----------------------------------------------------
-
-# Variable for Search Engine Service Name
-variable "srchsvc_snl_engine_name" {
-    description = "The Name which should be used for this Search Service. Changing this forces a new Search Service to be created."
-    type = string  
-}
-# Variable for SKU's provision the Search Service 
-variable "srchsvc_snl_sku_size" {
-    description = "The SKU which should be used for this Search Service. Possible values are basic, free, standard, standard2 and standard3 Changing this forces a new Search Service to be created."
-    type = string
-}
-
-#----------------------------------------------------
-# REDIS CACHE SERVICE VARIABLE DECLARATION
-#----------------------------------------------------
-
-# Variable for Redis Cache Name
-variable "redis_cache_snl_name" {
-    description = "The name of the Redis instance. Changing this forces a new resource to be created."
-    type = string  
-}
-# Variable for Redis Cache Capacity
-variable "redis_cache_snl_capacity" {
-    description = "The size of the Redis cache to deploy. Valid values for a SKU family of C (Basic/Standard) are 0, 1, 2, 3, 4, 5, 6, and for P (Premium) family are 1, 2, 3, 4."
-    type = number
-}
-# Variable for Redis Cache Family
-variable "redis_cache_snl_family" {
-    description = "The SKU family/pricing group to use. Valid values are C (for Basic/Standard SKU family) and P (for Premium)"
-    type = string
-}
-# Variable for Redis Cache SKU Size Type
-variable "redis_cache_snl_sku_type" {
-    description = "The SKU of Redis to use. Possible values are Basic, Standard and Premium."
-    type = string
-}
-# Variable for Redis Cache SVC SSL port.
-variable "redis_cache_snl_ssl_enable" {
-    description = "Enable the non-SSL port (6379) - disabled by default."
-    type = bool
-}
-# Variable for Redis Cache TLS version.
-variable "redis_cache_snl_tls_version" {
-    description = "he minimum TLS version. Defaults to 1.0."
-    type = string
-}
-# Variable for Redis Cache Firewall rules.
-variable "redis_cache_snl_firewall_rules" {
-    description = "The name of the Firewall Rule. Changing this forces a new resource to be created."
-    type = map
-}
-
-*/

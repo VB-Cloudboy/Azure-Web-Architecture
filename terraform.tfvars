@@ -55,42 +55,18 @@ sqlser_cb_dbaas = {
 }
 
 
-
-/*
-
 #-----------------------------------------------------------------------------
-# VIRUAL NETWORK & SUBNET DETAILS
+# AZURE APP-SERVICE-PLAN & WEB-APP
 #-----------------------------------------------------------------------------
 
-vnet_snl_network_name = "mainvnet01"
-vnet_snl_cidr_range = ["10.0.0.0/16"]
-vnet_snl_subnet_details  = {
+appservice_plan_name = "cloudboy-webappplan"
+appservice_plan_tier ="Standard"
+appservice_plan_size ="S3"
 
-    "0" = ["dmz-subnet-01", "10.0.0.0/28" ]
-    "1" = ["mgmt-subnet-02", "10.0.0.16/28" ]
-    "2" = ["web-subnet-03", "10.0.1.0/26" ]
+appservice_winapp  = {
+
+    "0" = ["cbwebapp01", "v4.0", "LocalGit" ]
+    "1" = ["cbwebapp02", "v5.0", "LocalGit" ]
 }
 
-#-----------------------------------------------------------------------------
-# SEARCH SERVICE ENGINE DETAILS
-#-----------------------------------------------------------------------------
 
-srchsvc_snl_engine_name = "snl-srchsvc"
-srchsvc_snl_sku_size    = "standard"
-
-#-----------------------------------------------------------------------------
-# REDIS CACHE SERVICE DETAILS
-#-----------------------------------------------------------------------------
-
-redis_cache_snl_name                = "vbapredistest"
-redis_cache_snl_capacity            = 1
-redis_cache_snl_family              = "C"
-redis_cache_snl_sku_type            = "Standard"
-redis_cache_snl_ssl_enable          = false
-redis_cache_snl_tls_version         = "1.2"
-redis_cache_snl_firewall_rules      = {
-
-    "0" = ["AllowInbound", "10.0.0.7", "10.0.0.8" ]
-}
-
-*/

@@ -26,12 +26,10 @@ provider "azuresb" {
 }
 
 
-# Create a resource group
-resource "azurerm_resource_group" "webapp-resgrp" {
+# Fetch resource group details
+data "azurerm_resource_group" "webapp-resgrp" {
   name     = "WebAppRG"
-  location = "Central India"
 }
-
 
 
 #--------------------------------------------------------------------------------
@@ -81,50 +79,19 @@ module "sqlser_app" {
   azurerm_sqldb_paas                         = var.sqlser_cb_dbaas
 }
 
-/*
+
 
 #--------------------------------------------------------------------------------
-# VIRTUAL NETWORK SETUP WITH SUBNETS
+# AZURE WEB-APP SERVICE SETUP WITH APP-SERVICE-PLAN 
 #--------------------------------------------------------------------------------
 
-module "vnet_app_snl" {
-  source = "../../modules/azure-vnet"
-  vrtl_net_name                     = var.vnet_snl_network_name
-  vrtl_net_addrspc                  = var.vnet_snl_cidr_range
-  vrtl_net_lctn                     = var.snl_resource_group_location
-  vrtl_net_resgrp                   = var.snl_resource_group_name
-  network_subnet                    = var.vnet_snl_subnet_details
-  vnet_environment_name_tag         = var.snl_environment_name_tag
+module "ase_webapp" {
+  source = "./modules/tf-az-web"
+  appsvcplan_name                     = var.appservice_plan_name
+  appsvcplan_location                 = var.resource_group_location
+  appsvcplan_resgrp_name              = var.resource_group_name
+  appsvcplan_tier                     = var.appservice_plan_tier
+  appsvcplan_size                     = var.appservice_plan_size
+  azapp_svc                           = var.appservice_winapp
 
 }
-
-#--------------------------------------------------------------------------------
-# SEARCH ENGINE SERIVCE SETUP
-#--------------------------------------------------------------------------------
-
-module "srch_svc_app_snl" {
-  source = "../../modules/azure-search"
-  srch_svc_name                     = var.srchsvc_snl_engine_name
-  srch_svc_resgrp                   = var.snl_resource_group_name
-  srch_svc_lctn                     = var.snl_resource_group_location
-  srch_svc_sku                      = var.srchsvc_snl_sku_size
-}
-
-#--------------------------------------------------------------------------------
-# REDIS CACHE SERVICE SETUP
-#--------------------------------------------------------------------------------
-
-module "redis_che_app_snl" {
-  source = "../../modules/azure-redis"
-  redis_che_svc_name                = var.redis_cache_snl_name
-  redis_che_svc_lctn                = var.snl_resource_group_location
-  redis_che_svc_resgrp              = var.snl_resource_group_name
-  redis_che_svc_cpty                = var.redis_cache_snl_capacity
-  redis_che_svc_fam                 = var.redis_cache_snl_family
-  redis_che_svc_sku_size            = var.redis_cache_snl_sku_type
-  redis_che_svc_ssl                 = var.redis_cache_snl_ssl_enable
-  redis_che_svc_tls_ver             = var.redis_cache_snl_tls_version
-  redis_che_fwrls                   = var.redis_cache_snl_firewall_rules
-}
-
-*/

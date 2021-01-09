@@ -24,6 +24,7 @@ resource "azurerm_storage_share" "storage-share" {
   name                 = var.strgshr_name
   storage_account_name = var.strgacct_name
   quota                = var.strgshr_quota
+  depends_on           = [azurerm_storage_account.storage-account]
 }
 
 
