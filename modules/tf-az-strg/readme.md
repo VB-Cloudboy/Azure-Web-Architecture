@@ -4,7 +4,7 @@ The Azure Storage platform is Microsoft's cloud storage solution for modern data
 
 ###### *For more details on the Azure Storage please click on this [link](https://docs.microsoft.com/en-us/azure/storage/common/storage-introduction?toc=/azure/storage/blobs/toc.json)*
 
-Azure DNS Resources terraform code defined in this module;
+Azure Storgae Resources terraform code defined in this module;
 
 |#.No| Resources | Consideration Status |
 | ---| ---       | ---                     |
