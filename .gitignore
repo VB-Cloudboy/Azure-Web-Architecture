@@ -13,6 +13,7 @@ stylesheets/bundles
 
 # Local files and directory folders
 .vscode
+.vscode/*
 temp.txt
 
 #Local terraform supporting files
